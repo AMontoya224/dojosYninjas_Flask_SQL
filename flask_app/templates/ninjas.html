@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>
+            Crear Ninja
+        </title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='./css/style.css') }}">
+    </head>
+    <body>
+        <div class="contenedor box3">
+            <form action="/dojos/ninja_new" method="POST">
+                <h1>
+                    Añadir nuevo Ninja
+                </h1>
+                <div class="entrada">
+                    <label for="dojo_id">
+                        Dojo:
+                    </label>
+                    <select id="dojo_id" name="dojo_id" required>
+                        <option value="">-- Selecciona una ciudad --</option>-->
+                        {% for dojo in listaDojos %}
+                            <option value="{{dojo['id']}}">{{dojo['name']}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="entrada">
+                    <label for="first_name">
+                        Nombre:
+                    </label>
+                    <input type="text" id="first_name" name="first_name" required/>
+                </div>
+                <div class="entrada">
+                    <label for="last_name">
+                        Apellido:
+                    </label>
+                    <input type="text" id="last_name" name="last_name" required/>
+                </div>
+                <div class="entrada">
+                    <label for="age">
+                        Edad:
+                    </label>
+                    <input type="text" id="age" name="age" required/>
+                </div>
+                <button type="submit" class="btn green">
+                    Crear
+                </button>
+            </form>
+            <form action="/dojos" method="POST">
+                <button type="submit" class="link">
+                    Home
+                </button>
+            </form>
+        </div>
+    </body>
+</html>
